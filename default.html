@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exciting World of Geospatial</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Visualizing Geospatial 8.0-4 APIs</h1>
+      <div id="map"></div>
+      <div class="pure-g">
+        <div class="pure-u-1-6"></div>
+        <div class="label pure-u-1-6">SELECTED REGION (GeoJSON)</div>
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-1-6"></div>
+        <div class="reference-values control-box pure-u-1-2" id="geojson">GeoJSON for selected shape...</div>
+        <div class"pure-u-1-6">
+          <button type="button" class="pure-button" id="button-interior-point">Map Interior Point</button>
+          <br />
+          <button type="button" class="pure-button" id="button-poly-to-line">Map Poly to Line</button>
+          <br />
+          <form class="pure-form" id="#region-approx-form" action="">
+            <input type="text" id="threshold" placeholder="Input Threshold (#) Here" value="" />
+            <br />
+            <input type="submit" class="pure-button" id="region-approx-submit" value="Approximate my region!" />
+          </form>
+          <button type="button" class="pure-button pure-button-primary" id="clean-map">Clean Map</button>
+        </div>
+      </div>
+      <div class="pure-g">
+        <div class="label pure-u-1-6"><p>WKT Format</p></div>
+        <div class="label pure-u-1-6"><p>WKB Format</p></div>
+        <div class="label pure-u-1-6"><p>KML Format</p></div>
+        <div class="label pure-u-1-6"><p>GML Format</p></div>
+        <div class="label pure-u-1-6"><p>GeoRSS Format</p></div>
+        <div class="label pure-u-1-6"><p>Count of Vertices</p></div>
+      </div>
+      <div class="pure-g">
+          <div class="reference-values pure-u-1-6" id="wkt">WKT</div>
+          <div class="reference-values pure-u-1-6" id="wkb">WKB</div>
+          <div class="reference-values pure-u-1-6" id="kml">KML</div>
+          <div class="reference-values pure-u-1-6" id="gml">GML</div>
+          <div class="reference-values pure-u-1-6" id="georss">GeoRSS</div>
+          <div class="reference-values pure-u-1-6" id="vertices"># of vertices</div>
+      </div>
+      <div class="hidden">
+        <div class="reference-values" id="distinct-vertices"> # of distinct vertices </div>
+        <div class="reference-values" id="interior-point"> interior point </div>
+        <div class="reference-values" id="interior-point-latlng"> interior point lat lng </div>
+        <div class="reference-values" id="poly-to-line"> polygon converted to linestring </div>
+        <div class="reference-values" id="poly-to-line-latlng"> polygon converted to linestring lat lng </div>
+        <div class="reference-values" id="region-approx"> approximated region </div>
+        <div class="reference-values" id="region-approx-latlng"> approximated region lat lng </div>
+        <div class="reference-values" id="ctsregion"></div>
+        <div class="reference-values" id="result-package"> AJAX response package </div>
+      </div>
+      <script type="text/javascript" src="script.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    </div>
+  </body>
+</html>
