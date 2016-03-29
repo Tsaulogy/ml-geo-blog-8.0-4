@@ -6,6 +6,7 @@ var geojson = require('/MarkLogic/geospatial/geojson.xqy');
 var geokml = require('/MarkLogic/geospatial/kml.xqy');
 var geogml = require('/MarkLogic/geospatial/gml.xqy');
 var georss = require('/MarkLogic/geospatial/georss.xqy');
+var convert = require('convert.sjs');
 
 /******************* start of main ***********************/
 
@@ -26,11 +27,11 @@ result.gml = geogml.toGml(ctsRegion);
 result.georss = georss.toGeorss(ctsRegion);
 result.wkb = xdmp.describe(geo.toWkb(ctsRegion));
 result.interiorPoint = geojson.toGeojson(geo.interiorPoint(ctsRegion));
-result.interiorPointLatLng = convertGeojsonToGoogLatLng(result.interiorPoint);
+result.interiorPointLatLng = convert.geojsonToGoogLatLng(result.interiorPoint);
 result.linestring = geojson.toGeojson(geo.polygonToLinestring(ctsRegion));
-result.linestringLatLng = convertGeojsonToGoogLatLng(result.linestring);
+result.linestringLatLng = convert.geojsonToGoogLatLng(result.linestring);
 result.polyToLine = geojson.toGeojson(geo.polygonToLinestring(ctsRegion));
-result.polyToLineLatLng = convertGeojsonToGoogLatLng(result.polyToLine);
+result.polyToLineLatLng = convert.geojsonToGoogLatLng(result.polyToLine);
 
 result;
 
@@ -79,30 +80,4 @@ function convertGoogObjToCtsRegion ( input ) {
   return geojson.parseGeojson(geojsonObject);
 }
 
-// convert a GeoJSON Object to Google Maps Geometry coordinates that can be mapped
-function convertGeojsonToGoogLatLng ( input ) {
-  var geojsonDoc = xdmp.toJSON(input);
-  var geojsonDocType = geojsonDoc.root.type;
-  var geojsonDocCoord = geojsonDoc.root.coordinates;
-  var latLng = {};
-  var latLngArray = [];
-
-  if ( geojsonDocType == "Point" ) {
-    return latLng = {"lat": geojsonDocCoord[1], "lng": geojsonDocCoord[0]};
-  }
-  else if ( geojsonDocType == "LineString" ) {
-    for (var i = 0; i < geojsonDocCoord.length; i++) {
-      latLng = {"lat": geojsonDocCoord[i][1], "lng": geojsonDocCoord[i][0]};
-      latLngArray.push(latLng);
-    }
-      return latLngArray;
-  }
-  else if ( geojsonDocType == "Polygon" ) {
-    for (var i = 0; i < geojsonDocCoord[0].length; i++) {
-      latLng = {"lat": geojsonDocCoord[0][i][1], "lng": geojsonDocCoord[0][i][0]};
-      latLngArray.push(latLng);
-    }
-    return latLngArray;
-  }
-}
 /****************** end of functions ********************/
