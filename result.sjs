@@ -16,7 +16,7 @@ var ctsRegion = convertGoogObjToCtsRegion(inputPoly);
 var result = new ResultClass();
 
 result.ctsregion = ctsRegion;
-result.wkt = geo.toWkt(ctsRegion);
+
 
 // NEW 8.0-4 APIs
 result.vertices = geo.countVertices(ctsRegion);
@@ -27,10 +27,13 @@ result.gml = geogml.toGml(ctsRegion);
 result.georss = georss.toGeorss(ctsRegion);
 result.wkb = xdmp.describe(geo.toWkb(ctsRegion));
 result.interiorPoint = geojson.toGeojson(geo.interiorPoint(ctsRegion));
-result.interiorPointLatLng = convert.geojsonToGoogLatLng(result.interiorPoint);
-result.linestring = geojson.toGeojson(geo.polygonToLinestring(ctsRegion));
-result.linestringLatLng = convert.geojsonToGoogLatLng(result.linestring);
 result.polyToLine = geojson.toGeojson(geo.polygonToLinestring(ctsRegion));
+// End of NEW 8.0-4 APIs
+
+
+result.wkt = geo.toWkt(ctsRegion);
+result.interiorPointLatLng = convert.geojsonToGoogLatLng(result.interiorPoint);
+result.linestringLatLng = convert.geojsonToGoogLatLng(result.linestring);
 result.polyToLineLatLng = convert.geojsonToGoogLatLng(result.polyToLine);
 
 result;
@@ -51,7 +54,6 @@ function ResultClass () {
   this.wkb;
   this.interiorPoint;
   this.interiorPointLatLng;
-  this.linestring;
   this.polyToLine;
   this.polyToLineLatLng;
 }
