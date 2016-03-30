@@ -1,5 +1,8 @@
 # Instructions
 
+
+Take a look at the blog post that discusses this app: (link here when post is published)
+
 ##Prequisites
 You will need:
 * An installation of [MarkLogic 8.0-4](https://developer.marklogic.com/products) (latest release of MarkLogic 8)
