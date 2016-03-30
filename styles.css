@@ -46,8 +46,15 @@ button, form {
   height: 400px;
   width: 67%;
   background-color: #CCC;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border-radius: 5px;
+}
+
+#instructions {
+  text-align: center;
+  font-size: 80%;
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 #wkb {
