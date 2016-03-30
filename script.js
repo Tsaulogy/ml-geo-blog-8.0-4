@@ -91,7 +91,6 @@ function initMap() {
   function updatePageWithSelectPoly ( result ) {
     $("#result-package").html(JSON.stringify(result));
     $("#vertices").html(JSON.stringify(result.vertices));
-    $("#distinct-vertices").html(JSON.stringify(result.distinctVertices));
     $("#interior-point").html(JSON.stringify(result.interiorPoint));
     $("#interior-point-latlng").html(JSON.stringify(result.interiorPointLatLng));
     $("#poly-to-line").html(JSON.stringify(result.polyToLine));

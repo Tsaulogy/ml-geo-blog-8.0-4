@@ -20,7 +20,6 @@ result.ctsregion = ctsRegion;
 
 // NEW 8.0-4 APIs
 result.vertices = geo.countVertices(ctsRegion);
-result.distinctVertices = geo.countDistinctVertices(ctsRegion);
 result.geojson = geojson.toGeojson(ctsRegion);
 result.kml = geokml.toKml(ctsRegion);
 result.gml = geogml.toGml(ctsRegion);
