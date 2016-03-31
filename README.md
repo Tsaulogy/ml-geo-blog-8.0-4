@@ -11,5 +11,5 @@ You will need:
 1. Clone this repository
 2. Open your browser and go to the Red Admin GUI (http://localhost:8001/default.xqy)
 3. Select 'App Servers'
-4. Select the 'Create HTTP' tab and create a new app server with a name, the root pointing to the file location of the repo (e.g. D:/github/ml-geo-blog-8.0-4/) and a port number (e.g. 1234). You'll want modules to point (file system). Also, since we're not storing any data in the database, you can use the default database 'Documents'. 
+4. Select the 'Create HTTP' tab and create a new app server with a name, the root pointing to the file location of the repo (e.g. D:/github/ml-geo-blog-8.0-4/) and a port number (e.g. 1234). You'll want modules to point to your file system. Also, since we're not storing any data in the database, you can use the default database 'Documents' 
 5. In your browser, go to that app server port (e.g. http://localhost:1234/default.html) to see the app
