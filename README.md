@@ -1,7 +1,7 @@
 # Instructions
 
 
-Take a look at the blog post that discusses this app: (link here when post is published)
+Take a look at the blog post that discusses this app: [Exciting Times in MarkLogic Geospatial](http://developer.marklogic.com/blog/exciting-times-in-marklogic-geospatial)
 
 ##Prequisites
 You will need:
