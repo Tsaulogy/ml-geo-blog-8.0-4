@@ -5,7 +5,7 @@ Take a look at the blog post that discusses this app: [Exciting Times in MarkLog
 
 ##Prequisites
 You will need:
-* An installation of [MarkLogic 8.0-4](https://developer.marklogic.com/products) or later
+* An installation of [MarkLogic 8.0-4](https://developer.marklogic.com/products) or later (but must be MarkLogic 8.0-x)
 
 ##Setup
 1. Clone this repository
